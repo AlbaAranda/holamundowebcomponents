@@ -7,8 +7,15 @@ module.exports = {
         filename: 'bundle.js',
     },
     plugins: [
-      new HtmlWebpackPlugin({
-        title: 'Hola Mundo'
-      })
-    ]
+        new HtmlWebpackPlugin({
+            title: 'Hola Mundo'
+        })
+    ],
+
+    module: {
+        loaders: [
+            { test: /\.css$/, loader: "style-loader!css-loader" },
+            { test: /\.scss$/, loader: "style-loader!css-loader!sass-loader" }
+        ]
+    }
 };
